@@ -4,10 +4,11 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "vite",
-    "build": "tsc --noEmit && vite build",
-    "preview": "vite preview"
-  },
+  "dev": "vite",
+  "build": "node ./node_modules/vite/bin/vite.js build",
+  "preview": "node ./node_modules/vite/bin/vite.js preview"
+},
+"engines": { "node": ">=18" },
   "dependencies": {
     "clsx": "^2.1.1",
     "lucide-react": "^0.454.0",
