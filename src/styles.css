@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: dark;
+}
+
+/* Reusable utilities */
+.container-p {
+  @apply max-w-7xl mx-auto px-4 sm:px-6 lg:px-8;
+}
+.card {
+  @apply bg-card/70 backdrop-blur rounded-2xl shadow-soft border border-white/5;
+}
+.btn {
+  @apply inline-flex items-center gap-2 rounded-xl px-4 py-2 font-medium transition hover:opacity-90;
+}
+.btn-primary {
+  @apply btn bg-brand-500;
+}
+.link {
+  @apply text-brand-400 hover:text-brand-300 underline underline-offset-4;
+}

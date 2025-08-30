@@ -1,0 +1,6 @@
+{
+  "rewrites": [
+    { "source": "/api/itunes/(.*)", "destination": "https://itunes.apple.com/$1" },
+    { "source": "/(.*)", "destination": "/" }
+  ]
+}
