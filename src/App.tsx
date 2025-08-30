@@ -4,15 +4,15 @@ import { Library } from "./routes/Library";
 import { Login } from "./routes/Login";
 import { Search } from "./routes/Search";
 import { PlayerProvider } from "./context/PlayerContext";
-import { PlayerBar } from "./components/PlayerBar";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { Search as SearchIcon, Library as LibraryIcon, Home as HomeIcon, LogIn } from "lucide-react";
+import FloatingPlayer from "./components/FloatingPlayer"; // ⬅️ nuevo
 
 function TopNav() {
   const { user, logout } = useAuth();
   return (
     <nav className="container-p flex items-center gap-4 py-3">
-      <img src="/logo.svg" alt="Kodigo Music" className="h-8 w-8 rounded" />
+      <img src="/logo1.png" alt="Kodigo Music" className="h-8 w-8 rounded" />
       <span className="font-semibold">Kodigo Music</span>
       <div className="ml-auto flex items-center gap-2">
         <NavLink to="/" className={({isActive}) => `btn ${isActive ? "bg-white/10" : ""}`}>
@@ -43,12 +43,13 @@ export default function App() {
   return (
     <AuthProvider>
       <PlayerProvider>
-        <div className="min-h-screen grid grid-rows-[auto,1fr,auto]">
+        <div className="min-h-screen grid grid-rows-[auto,1fr]">
           <header className="sticky top-0 z-40 bg-black/40 backdrop-blur border-b border-white/5">
             <TopNav />
           </header>
 
-          <main className="container-p my-6">
+          {/* padding-bottom para no tapar contenido con el player flotante */}
+          <main className="container-p my-6 pb-28">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/search" element={<Search />} />
@@ -57,9 +58,8 @@ export default function App() {
             </Routes>
           </main>
 
-          <footer className="border-t border-white/5">
-            <PlayerBar />
-          </footer>
+          {/* Player flotante */}
+          <FloatingPlayer />
         </div>
       </PlayerProvider>
     </AuthProvider>
