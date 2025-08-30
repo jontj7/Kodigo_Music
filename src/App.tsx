@@ -6,7 +6,7 @@ import { Search } from "./routes/Search";
 import { PlayerProvider } from "./context/PlayerContext";
 import { AuthProvider, useAuth } from "./context/AuthContext";
 import { Search as SearchIcon, Library as LibraryIcon, Home as HomeIcon, LogIn } from "lucide-react";
-import FloatingPlayer from "./components/FloatingPlayer"; // ⬅️ nuevo
+import FloatingPlayer from "./components/FloatingPlayer"; 
 
 function TopNav() {
   const { user, logout } = useAuth();
